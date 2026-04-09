@@ -8,11 +8,11 @@
   --color-primary: #95a9ff;
   --color-primary-container: #829bff;
   --color-on-primary: #00247e;
-  
+
   --color-secondary: #c57eff;
   --color-secondary-container: #6817a4;
   --color-on-secondary: #340059;
-  
+
   --color-tertiary: #9bf7ff;
   --color-tertiary-container: #00555b;
   --color-on-tertiary: #005f65;
@@ -22,19 +22,22 @@
   --color-surface-container: #19191c;
   --color-surface-container-high: #1f1f22;
   --color-surface-container-highest: #262528;
-  
+
   --color-on-surface: #f6f3f5;
   --color-on-surface-variant: #acaaad;
-  
+
   --color-outline-variant: rgba(72, 71, 74, 0.2);
 }
 
 @layer base {
-  body {
-    @apply bg-surface text-on-surface font-body;
+  html {
     scroll-behavior: smooth;
   }
-  
+
+  body {
+    @apply bg-surface text-on-surface font-body;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
   }
@@ -44,7 +47,7 @@
   .glass-panel {
     @apply bg-surface/70 backdrop-blur-xl border border-white/5;
   }
-  
+
   .mesh-gradient {
     background: radial-gradient(at 0% 0%, rgba(149, 169, 255, 0.15) 0%, transparent 50%), 
                 radial-gradient(at 100% 100%, rgba(197, 126, 255, 0.1) 0%, transparent 50%);

@@ -1,8 +1,13 @@
 import { motion } from "motion/react";
+import { COMMUNITY_NAME } from "../config/site";
+import ASCIIText from "../../components/ASCIIText.jsx";
 
 export default function Hero() {
   return (
-    <header className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 overflow-hidden mesh-gradient">
+    <header
+      id="home"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 overflow-hidden mesh-gradient"
+    >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-secondary/10 blur-[120px] rounded-full"></div>
@@ -24,7 +29,18 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-4xl md:text-8xl font-bold tracking-tighter mb-6 leading-tight md:leading-none"
         >
-          WAGMI <br className="hidden md:block" />
+          <span className="relative mx-auto mb-2 block h-[136px] w-full max-w-[520px] md:h-[220px] md:max-w-[920px]">
+            <div className="absolute inset-0 opacity-80">
+              <ASCIIText
+                text={COMMUNITY_NAME}
+                enableWaves
+                asciiFontSize={7}
+                textFontSize={250}
+                planeBaseHeight={13}
+              />
+            </div>
+          </span>
+          {/* <br className="hidden md:block" /> */}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary">
             Coimbatore & Tiruppur
           </span>

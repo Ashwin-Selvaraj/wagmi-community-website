@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { MessageSquare, Send, Phone } from "lucide-react";
+import { COMMUNITY_NAME } from "../config/site";
 
 export default function CommunityCTA() {
   return (
-    <section className="py-24 px-6 bg-surface relative overflow-hidden" id="impact">
+    <section className="py-24 px-6 bg-surface relative overflow-hidden" id="community">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
       
       <div className="max-w-4xl mx-auto relative z-10 text-center">
@@ -14,7 +15,7 @@ export default function CommunityCTA() {
           className="bg-surface-container-low/60 backdrop-blur-2xl p-10 md:p-20 rounded-[3rem] border border-white/5 shadow-2xl"
         >
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-tight">
-            Start your Web3 journey with <span className="text-primary">WAGMI</span>
+            Start your Web3 journey with <span className="text-primary">{COMMUNITY_NAME}</span>
           </h2>
           <p className="text-on-surface-variant text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
             Connect with our regional chapters and join the movement today. We're building the future of the decentralized web, together.

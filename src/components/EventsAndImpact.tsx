@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { Calendar, CheckCircle2, Users2 } from "lucide-react";
+import { Calendar } from "lucide-react";
+import { COMMUNITY_NAME } from "../config/site";
 
 export default function EventsAndImpact() {
   return (
@@ -15,7 +16,7 @@ export default function EventsAndImpact() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Event 1 */}
           <motion.div 
             whileHover={{ y: -10 }}
@@ -58,7 +59,7 @@ export default function EventsAndImpact() {
             </div>
             <div className="relative z-10">
               <span className="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-[10px] font-bold mb-3 inline-block">HACKATHON</span>
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">WAGMI Build Tiruppur</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-2">{COMMUNITY_NAME} Build Tiruppur</h3>
               <p className="text-on-surface-variant text-sm mb-6 flex items-center gap-2">
                 <Calendar size={14} /> Nov 12 • Tiruppur
               </p>
@@ -69,46 +70,6 @@ export default function EventsAndImpact() {
           </motion.div>
         </div>
 
-        {/* Impact Section */}
-        <div className="bg-surface p-10 md:p-16 rounded-[3rem] border border-white/5" id="impact">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Last Season's Impact</h2>
-              <p className="text-on-surface-variant mb-10 leading-relaxed">
-                Our previous series of "Solidity Summits" brought together the brightest minds in Southeast Asia to solve scaling bottlenecks. The results speak for themselves.
-              </p>
-              <div className="space-y-6">
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-primary border border-primary/20">
-                    <CheckCircle2 size={32} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xl">14 OSS Projects</h4>
-                    <p className="text-sm text-on-surface-variant">Founded during our monthly hackathons.</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary border border-secondary/20">
-                    <Users2 size={32} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xl">2.5k Attendees</h4>
-                    <p className="text-sm text-on-surface-variant">Across 12 regional meetups in Q1-Q3.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 blur-[80px] rounded-full"></div>
-              <img 
-                className="rounded-3xl shadow-2xl relative z-10 border border-white/10" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL9lSxLw4bCg1ppaiVae82S9wXlXf6P_t-6Q6h9PW-vAIuCoYZRlJ-XgGQ2_Rco264ct3htY8y3JvY2TkOvxCjIdSlBPtwnxyfLu3y87reo9UADzKg_r7p2hD_m7HGztKXzU0MXoGqOF-HNnqy3nvU3eEJdER-Y2XQpslAT-YaLS6M5Sv-N58ZSXNqogENIzzz_Kr8Um-_qp0uzMkpg4Ue9QMeI48kK8gNrsyAIRgFsIGrbxhhWbRucP114BBJH4Wk2towSU4Leayx" 
-                alt="Developers working"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
