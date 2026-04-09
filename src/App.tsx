@@ -6,23 +6,38 @@ import Roadmap from "./components/Roadmap";
 import Impact from "./components/Impact";
 import CommunityCTA from "./components/CommunityCTA";
 import PartnersAndTeam from "./components/PartnersAndTeam";
+import PageSection from "./components/PageSection";
 import { COMMUNITY_NAME } from "./config/site";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-surface selection:bg-primary/30">
       <Navbar />
-      <main>
-        <Hero />
-        <EventsAndImpact />
-        <Activities />
-        <Roadmap />
-        <Impact />
-        <PartnersAndTeam />
-        <CommunityCTA />
+      <main className="px-3 pb-5 pt-3 md:px-5 md:pb-8 md:pt-4 space-y-5 md:space-y-8">
+        <PageSection forcedPages={1}>
+          <Hero />
+        </PageSection>
+        <PageSection>
+          <EventsAndImpact />
+        </PageSection>
+        <PageSection>
+          <Activities />
+        </PageSection>
+        <PageSection forcedPages={1}>
+          <Roadmap />
+        </PageSection>
+        <PageSection>
+          <Impact />
+        </PageSection>
+        <PageSection>
+          <PartnersAndTeam />
+        </PageSection>
+        <PageSection>
+          <CommunityCTA />
+        </PageSection>
       </main>
       
-      <footer className="py-12 px-6 bg-surface border-t border-white/5 text-center">
+      <footer className="mx-3 mb-3 md:mx-5 md:mb-5 py-12 px-6 bg-surface border border-white/5 rounded-[2rem] md:rounded-[2.75rem] text-center">
         <div className="max-w-7xl mx-auto">
           <div className="text-xl font-bold tracking-tighter text-on-surface font-headline mb-4">{COMMUNITY_NAME}</div>
           <p className="text-on-surface-variant text-sm mb-8">Building the Ethereum ecosystem in Coimbatore & Tiruppur.</p>

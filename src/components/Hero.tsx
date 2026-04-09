@@ -6,23 +6,14 @@ export default function Hero() {
   return (
     <header
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 overflow-hidden mesh-gradient"
+      className="relative min-h-[100dvh] flex flex-col justify-between text-center px-6 pt-24 md:pt-28 pb-8 md:pb-10 overflow-hidden mesh-gradient"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-secondary/10 blur-[120px] rounded-full"></div>
       </div>
       
-      <div className="relative z-10 max-w-4xl mx-auto">
-        <motion.span 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="inline-block px-4 py-1.5 rounded-full bg-surface-container-highest text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-outline-variant"
-        >
-          Onboarding the next wave of builders and believers into Ethereum.
-        </motion.span>
-        
+      <div className="relative z-10 max-w-4xl mx-auto w-full">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,11 +61,11 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1 }}
-        className="mt-16 md:mt-20 relative z-10 w-full max-w-6xl"
+        className="mt-8 md:mt-10 relative z-10 w-full max-w-6xl mx-auto"
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-4">
           {[

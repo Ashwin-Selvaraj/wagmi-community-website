@@ -11,9 +11,12 @@ export default function EventsAndImpact() {
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Upcoming Initiatives</h2>
             <p className="text-on-surface-variant">Reserve your spot at our next high-impact gatherings.</p>
           </div>
-          <button className="px-6 py-3 rounded-2xl bg-surface-container-highest border border-outline-variant hover:border-primary/40 transition-all font-bold text-sm">
+          <a
+            href="#impact"
+            className="inline-flex items-center px-6 py-3 rounded-2xl bg-surface-container-highest border border-outline-variant hover:border-primary/40 transition-all font-bold text-sm"
+          >
             View Archive
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">

@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Home, Calendar, MapPinned, Users, Shield } from "lucide-react";
 import { type ComponentType, useEffect, useRef, useState } from "react";
 import { COMMUNITY_NAME } from "../config/site";
-import DecryptedText from "./DecryptedText";
+import PillNav from "./PillNav";
 
 type NavItem = {
   id: string;
@@ -84,56 +84,40 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Top Nav */}
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed left-1/2 z-50 hidden w-[95%] max-w-6xl -translate-x-1/2 justify-between rounded-full border backdrop-blur-xl md:flex ${
+        className={`fixed left-1/2 z-50 hidden w-[95%] max-w-6xl -translate-x-1/2 items-center gap-6 rounded-full border backdrop-blur-xl md:flex ${
           isScrolled
             ? "top-4 border-white/10 bg-surface/90 px-8 py-2.5 shadow-[0px_20px_40px_rgba(0,0,0,0.45)]"
             : "top-6 border-white/5 bg-surface/70 px-8 py-3 shadow-[0px_24px_48px_rgba(0,0,0,0.4)]"
         }`}
       >
-        <div className="text-xl font-bold tracking-tighter text-on-surface font-headline flex items-center gap-2">
+        <div className="min-w-[220px] text-xl font-bold tracking-tighter text-on-surface font-headline flex items-center gap-2">
           <Shield className="text-primary" size={24} />
           {COMMUNITY_NAME}
         </div>
-        <div className="flex items-center gap-8">
-          {NAV_ITEMS.map((item) => {
-            const isActive = activeSection === item.id;
-            return (
-              <a
-                key={item.id}
-                className={`relative rounded-full px-2 py-1 font-headline text-sm tracking-tight transition-all duration-300 ${
-                  isActive ? "font-bold text-on-surface" : "font-medium text-on-surface-variant hover:text-on-surface"
-                }`}
-                href={item.href}
-                onClick={() => {
-                  activeRef.current = item.id;
-                  setActiveSection(item.id);
-                }}
-              >
-                <span className="relative z-10">
-                  {isActive ? (
-                    <DecryptedText
-                      text={item.label}
-                      triggerKey={`${item.id}-${activeSection}`}
-                      animateOn="view"
-                      sequential
-                      revealDirection="start"
-                      speed={30}
-                      className="text-on-surface"
-                      encryptedClassName="text-primary/70"
-                    />
-                  ) : (
-                    item.label
-                  )}
-                </span>
-              </a>
-            );
-          })}
-        </div>
-        <button className="bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold px-6 py-2 rounded-full scale-95 active:scale-90 transition-transform text-sm">
+        <PillNav
+          items={NAV_ITEMS.map((item) => ({ label: item.label, href: item.href }))}
+          activeHref={`#${activeSection}`}
+          className="w-full"
+          ease="power2.easeOut"
+          baseColor="#f6f3f5"
+          pillColor="#95a9ff"
+          hoveredPillTextColor="#0e0e10"
+          pillTextColor="#f6f3f5"
+          initialLoadAnimation={false}
+          showLogo={false}
+          showMobileToggle={false}
+          onItemClick={(href) => {
+            const id = href.replace(/^#/, "");
+            if (!id) return;
+            activeRef.current = id;
+            setActiveSection(id);
+          }}
+        />
+        <button className="shrink-0 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold px-6 py-2 rounded-full scale-95 active:scale-90 transition-transform text-sm">
           Join Sanctum
         </button>
       </motion.nav>
