@@ -20,9 +20,9 @@ export default function App() {
         <PageSection>
           <EventsAndImpact />
         </PageSection>
-        <PageSection>
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/5 p-2 md:rounded-[2.75rem] md:p-3">
           <Activities />
-        </PageSection>
+        </div>
         <PageSection forcedPages={1}>
           <Roadmap />
         </PageSection>
