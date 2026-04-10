@@ -2,6 +2,12 @@
 
 interface ImportMetaEnv {
   readonly VITE_COMMUNITY_NAME?: string;
+  readonly VITE_COMMUNITY_INSTAGRAM_URL?: string;
+  readonly VITE_COMMUNITY_TWITTER_URL?: string;
+  readonly VITE_COMMUNITY_WHATSAPP_URL?: string;
+  readonly VITE_IMPACT_EVENTS_HOSTED?: string;
+  readonly VITE_IMPACT_COMMUNITY_REACH?: string;
+  readonly VITE_IMPACT_FOCUS?: string;
   readonly VITE_PAST_EVENTS_JSON?: string;
   readonly VITE_TEAM_NAME_1?: string;
   readonly VITE_TEAM_TITLE_1?: string;

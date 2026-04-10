@@ -3,6 +3,10 @@ const fallbackCommunityName = "Community";
 export const COMMUNITY_NAME =
   import.meta.env.VITE_COMMUNITY_NAME?.trim() || fallbackCommunityName;
 
+export const COMMUNITY_INSTAGRAM_URL = import.meta.env.VITE_COMMUNITY_INSTAGRAM_URL?.trim() || "#";
+export const COMMUNITY_TWITTER_URL = import.meta.env.VITE_COMMUNITY_TWITTER_URL?.trim() || "#";
+export const COMMUNITY_WHATSAPP_URL = import.meta.env.VITE_COMMUNITY_WHATSAPP_URL?.trim() || "#";
+
 export type PastEvent = {
   title: string;
   url: string;
@@ -61,6 +65,14 @@ const parsePastEvents = (value: string | undefined): PastEvent[] => {
 };
 
 export const PAST_EVENTS = parsePastEvents(import.meta.env.VITE_PAST_EVENTS_JSON);
+
+/** Impact section stat cards; env overrides with sensible fallbacks. */
+export const IMPACT_EVENTS_HOSTED =
+  import.meta.env.VITE_IMPACT_EVENTS_HOSTED?.trim() || String(PAST_EVENTS.length);
+export const IMPACT_COMMUNITY_REACH =
+  import.meta.env.VITE_IMPACT_COMMUNITY_REACH?.trim() || "2.5k+ Attendees";
+export const IMPACT_FOCUS =
+  import.meta.env.VITE_IMPACT_FOCUS?.trim() || "Ethereum Education";
 
 const TEAM_SLOTS = [1, 2, 3, 4, 5, 6] as const;
 

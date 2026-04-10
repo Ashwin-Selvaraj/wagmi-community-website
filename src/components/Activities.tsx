@@ -13,7 +13,7 @@ const activities = [
     linkText: "Learn more"
   },
   {
-    title: "Ethereum Workshops",
+    title: "Web3 Workshops",
     description: "Hands-on technical deep-dives for developers looking to master Solidity and smart contracts.",
     icon: Users,
     color: "text-secondary",

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import EventCard from "./EventCard";
 import EventModal from "./EventModal";
 import { events, type CommunityEvent } from "../config/events";
+import { COMMUNITY_NAME } from "../config/site";
 
 const featuredCourse: CommunityEvent = {
   id: 999,
@@ -36,7 +37,7 @@ export default function EventsSection() {
           <div>
             <h2 className="mb-3 text-4xl font-bold tracking-tight md:text-5xl">Events</h2>
             <p className="max-w-2xl text-on-surface-variant">
-              Discover beginner-friendly sessions, workshops, and courses designed to onboard and grow Ethereum builders in the WAGMI community.
+              {`Discover beginner-friendly sessions, workshops, and courses designed to onboard and grow Web3 builders in the ${COMMUNITY_NAME} community.`}
             </p>
           </div>
           <a

@@ -117,9 +117,12 @@ export default function Navbar() {
             setActiveSection(id);
           }}
         />
-        <button className="shrink-0 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold px-6 py-2 rounded-full scale-95 active:scale-90 transition-transform text-sm">
+        <a
+          href="#community"
+          className="shrink-0 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold px-6 py-2 rounded-full scale-95 active:scale-90 transition-transform text-sm"
+        >
           Join Sanctum
-        </button>
+        </a>
       </motion.nav>
 
       {/* Mobile Top Bar */}

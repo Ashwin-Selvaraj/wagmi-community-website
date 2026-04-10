@@ -1,6 +1,12 @@
 import { ExternalLink, CheckCircle2, Users2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { PAST_EVENTS, type PastEvent } from "../config/site";
+import {
+  IMPACT_COMMUNITY_REACH,
+  IMPACT_EVENTS_HOSTED,
+  IMPACT_FOCUS,
+  PAST_EVENTS,
+  type PastEvent,
+} from "../config/site";
 
 const FALLBACK_EVENT_IMAGE =
   "https://images.unsplash.com/photo-1639762681057-408e52192e55?auto=format&fit=crop&w=1200&q=80";
@@ -72,7 +78,7 @@ export default function Impact() {
           <div className="mb-10">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Last Season&apos;s Impact</h2>
             <p className="text-on-surface-variant max-w-3xl">
-              A snapshot of high-signal events that strengthened our local Ethereum ecosystem with practical learning,
+              A snapshot of high-signal events that strengthened our local WEB3 ecosystem with practical learning,
               community conversations, and sustained builder momentum.
             </p>
           </div>
@@ -83,18 +89,18 @@ export default function Impact() {
                 <CheckCircle2 size={18} className="text-primary" />
                 <p className="text-xs uppercase tracking-widest text-on-surface-variant">Events Hosted</p>
               </div>
-              <p className="text-2xl font-bold">{events.length}</p>
+              <p className="text-2xl font-bold">{IMPACT_EVENTS_HOSTED}</p>
             </div>
             <div className="rounded-2xl bg-surface-container-low border border-white/10 px-5 py-4">
               <div className="flex items-center gap-3 mb-1">
                 <Users2 size={18} className="text-secondary" />
                 <p className="text-xs uppercase tracking-widest text-on-surface-variant">Community Reach</p>
               </div>
-              <p className="text-2xl font-bold">2.5k+ Attendees</p>
+              <p className="text-2xl font-bold">{IMPACT_COMMUNITY_REACH}</p>
             </div>
             <div className="rounded-2xl bg-surface-container-low border border-white/10 px-5 py-4">
               <p className="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Focus</p>
-              <p className="text-2xl font-bold">Ethereum Education</p>
+              <p className="text-2xl font-bold">{IMPACT_FOCUS}</p>
             </div>
           </div>
 

@@ -1,6 +1,11 @@
 import { motion } from "motion/react";
-import { MessageSquare, Send, Phone } from "lucide-react";
-import { COMMUNITY_NAME } from "../config/site";
+import { Instagram, Twitter, MessageCircle } from "lucide-react";
+import {
+  COMMUNITY_NAME,
+  COMMUNITY_INSTAGRAM_URL,
+  COMMUNITY_TWITTER_URL,
+  COMMUNITY_WHATSAPP_URL,
+} from "../config/site";
 
 export default function CommunityCTA() {
   return (
@@ -25,26 +30,32 @@ export default function CommunityCTA() {
             <motion.a 
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              href="#" 
-              className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#5865F2] flex items-center justify-center text-white shadow-[0_0_20px_rgba(88,101,242,0.4)]"
+              href={COMMUNITY_INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#E4405F] flex items-center justify-center text-white shadow-[0_0_20px_rgba(228,64,95,0.4)]"
             >
-              <MessageSquare size={28} />
+              <Instagram size={28} />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              href="#" 
-              className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#0088cc] flex items-center justify-center text-white shadow-[0_0_20px_rgba(0,136,204,0.4)]"
+              href={COMMUNITY_TWITTER_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#1D9BF0] flex items-center justify-center text-white shadow-[0_0_20px_rgba(29,155,240,0.4)]"
             >
-              <Send size={28} />
+              <Twitter size={28} />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              href="#" 
+              href={COMMUNITY_WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-[0_0_20px_rgba(37,211,102,0.4)]"
             >
-              <Phone size={28} />
+              <MessageCircle size={28} />
             </motion.a>
           </div>
         </motion.div>

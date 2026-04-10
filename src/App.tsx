@@ -40,12 +40,7 @@ export default function App() {
       <footer className="mx-3 mb-3 md:mx-5 md:mb-5 py-12 px-6 bg-surface border border-white/5 rounded-[2rem] md:rounded-[2.75rem] text-center">
         <div className="max-w-7xl mx-auto">
           <div className="text-xl font-bold tracking-tighter text-on-surface font-headline mb-4">{COMMUNITY_NAME}</div>
-          <p className="text-on-surface-variant text-sm mb-8">Building the Ethereum ecosystem in Coimbatore & Tiruppur.</p>
-          <div className="flex justify-center gap-8 mb-8">
-            <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">Twitter</a>
-            <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">GitHub</a>
-            <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">Discord</a>
-          </div>
+          <p className="text-on-surface-variant text-sm mb-8">Building the WEB3 ecosystem in Coimbatore & Tiruppur.</p>
           <p className="text-on-surface-variant/50 text-xs">© 2024 {COMMUNITY_NAME} Community. All rights reserved.</p>
         </div>
       </footer>
