@@ -1,5 +1,6 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { CheckCircle2, Rocket, Flame, Zap, Settings, Leaf } from "lucide-react";
+import { useRef } from "react";
 
 const phases = [
   {
@@ -55,33 +56,54 @@ const phases = [
 ];
 
 export default function Roadmap() {
+  const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 75%", "end 35%"],
+  });
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <section className="py-24 px-6 bg-surface overflow-hidden relative" id="roadmap">
+    <section ref={sectionRef} className="py-24 px-6 bg-surface overflow-hidden relative" id="roadmap">
       <div className="max-w-3xl mx-auto relative">
-        <div className="flex items-center gap-4 mb-12">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="flex items-center gap-4 mb-12"
+        >
           <div className="h-12 w-1.5 bg-secondary rounded-full"></div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Evolution Path</h2>
-        </div>
+        </motion.div>
 
         <div className="relative pl-8 md:pl-12">
           {/* Vertical Line */}
           <div className="absolute left-[11px] md:left-[15px] top-0 bottom-0 w-px bg-white/10"></div>
+          <motion.div
+            className="absolute left-[11px] md:left-[15px] top-0 h-full w-px origin-top bg-gradient-to-b from-primary via-secondary to-tertiary"
+            style={{ scaleY: reduceMotion ? 1 : lineScale }}
+          />
           
           <div className="space-y-12">
             {phases.map((phase, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative"
+                initial={reduceMotion ? false : { opacity: 0, x: -16, y: 8 }}
+                whileInView={reduceMotion ? undefined : { opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: 0.28 }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+                whileHover={reduceMotion ? undefined : { x: 4 }}
+                whileTap={{ scale: 0.995 }}
+                className="relative rounded-2xl md:rounded-3xl p-2 transition-shadow hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
               >
                 {/* Dot/Indicator */}
                 <div className={`absolute -left-[30px] md:-left-[42px] top-1 w-6 h-6 md:w-8 md:h-8 rounded-full bg-surface border-2 border-white/10 flex items-center justify-center z-10`}>
                   {phase.status.includes("Completed") ? (
                     <CheckCircle2 className="text-primary" size={14} />
                   ) : phase.status.includes("Current") ? (
-                    <div className="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_10px_rgba(255,149,149,0.5)]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse motion-reduce:animate-none shadow-[0_0_10px_rgba(255,149,149,0.5)]"></div>
                   ) : (
                     <div className="w-2.5 h-2.5 rounded-full bg-white/10"></div>
                   )}

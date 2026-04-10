@@ -29,7 +29,7 @@ export default function App() {
         <PageSection>
           <Impact />
         </PageSection>
-        <PageSection>
+        <PageSection forcedPages={1}>
           <PartnersAndTeam />
         </PageSection>
         <PageSection>

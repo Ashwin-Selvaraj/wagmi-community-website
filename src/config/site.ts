@@ -9,6 +9,13 @@ export type PastEvent = {
   image?: string;
 };
 
+export type TeamMember = {
+  name: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
 const DEFAULT_PAST_EVENTS: PastEvent[] = [
   {
     title: "Scaling Ethereum: Mastering Layer 2 Technologies",
@@ -54,3 +61,20 @@ const parsePastEvents = (value: string | undefined): PastEvent[] => {
 };
 
 export const PAST_EVENTS = parsePastEvents(import.meta.env.VITE_PAST_EVENTS_JSON);
+
+const TEAM_SLOTS = [1, 2, 3, 4, 5, 6] as const;
+
+const parseTeamMembers = (): TeamMember[] => {
+  return TEAM_SLOTS.reduce<TeamMember[]>((acc, index) => {
+    const name = import.meta.env[`VITE_TEAM_NAME_${index}`]?.trim();
+    const title = import.meta.env[`VITE_TEAM_TITLE_${index}`]?.trim();
+    const description = import.meta.env[`VITE_TEAM_DESCRIPTION_${index}`]?.trim();
+    const image = import.meta.env[`VITE_TEAM_IMAGE_${index}`]?.trim();
+
+    if (!name || !title || !description || !image) return acc;
+    acc.push({ name, title, description, image });
+    return acc;
+  }, []);
+};
+
+export const TEAM_MEMBERS = parseTeamMembers();
