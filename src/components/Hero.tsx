@@ -52,12 +52,18 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-3xl font-bold text-lg hover:shadow-[0_0_30px_rgba(149,169,255,0.4)] transition-all">
+          <a
+            href="#community"
+            className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-3xl font-bold text-lg hover:shadow-[0_0_30px_rgba(149,169,255,0.4)] transition-all"
+          >
             Join Community
-          </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-surface-container-highest text-on-surface rounded-3xl font-bold text-lg hover:bg-surface-container-high transition-all">
+          </a>
+          <a
+            href="#events"
+            className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-surface-container-highest text-on-surface rounded-3xl font-bold text-lg hover:bg-surface-container-high transition-all"
+          >
             Explore Events
-          </button>
+          </a>
         </motion.div>
       </div>
 
