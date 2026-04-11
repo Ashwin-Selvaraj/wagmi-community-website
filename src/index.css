@@ -60,4 +60,17 @@
     background: radial-gradient(at 0% 0%, rgba(149, 169, 255, 0.15) 0%, transparent 50%), 
                 radial-gradient(at 100% 100%, rgba(197, 126, 255, 0.1) 0%, transparent 50%);
   }
+
+  /* Uniform vertical rhythm for stacked page sections */
+  .section-y {
+    @apply py-24 md:py-28;
+  }
+
+  .section-x {
+    @apply px-6 md:px-8;
+  }
+
+  .section-heading-gap {
+    @apply mb-12 md:mb-16;
+  }
 }

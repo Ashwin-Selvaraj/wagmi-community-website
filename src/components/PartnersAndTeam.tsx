@@ -3,11 +3,10 @@ import { TEAM_MEMBERS } from "../config/site";
 
 export default function PartnersAndTeam() {
   return (
-    <section className="bg-surface" id="team">
-      {/* Team */}
-      <div className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-12">
+    <section className="bg-surface w-full min-w-0" id="team">
+      <div className="section-y section-x">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="section-heading-gap flex items-center gap-4">
             <div className="h-12 w-1.5 bg-primary rounded-full"></div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Team</h2>
           </div>

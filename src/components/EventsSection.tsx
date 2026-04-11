@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import EventCard from "./EventCard";
 import EventModal from "./EventModal";
 import { events, type CommunityEvent } from "../config/events";
@@ -31,9 +31,9 @@ export default function EventsSection() {
   const visibleEvents = useMemo(() => (hasEvents ? events : [featuredCourse]), [hasEvents]);
 
   return (
-    <section className="bg-surface-container-low px-6 py-20 md:py-24" id="events">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <section className="bg-surface-container-low section-x section-y" id="events">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="section-heading-gap flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="mb-3 text-4xl font-bold tracking-tight md:text-5xl">Events</h2>
             <p className="max-w-2xl text-on-surface-variant">
@@ -62,7 +62,9 @@ export default function EventsSection() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {visibleEvents.map((event, index) => (
-            <EventCard key={event.id} event={event} index={index} onViewDetails={setSelectedEvent} />
+            <Fragment key={event.id}>
+              <EventCard event={event} index={index} onViewDetails={setSelectedEvent} />
+            </Fragment>
           ))}
         </div>
       </div>

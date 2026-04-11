@@ -72,10 +72,10 @@ export default function Impact() {
   }, [events]);
 
   return (
-    <section className="px-6 pb-24 bg-surface-container-low" id="impact">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-surface p-8 md:p-12 rounded-[2.4rem] border border-white/5">
-          <div className="mb-10">
+    <section className="section-x section-y bg-surface-container-low w-full min-w-0" id="impact">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="bg-surface rounded-[2rem] border border-white/5 p-6 sm:p-8 md:p-10 lg:p-12 md:rounded-[2.5rem]">
+          <div className="section-heading-gap">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Last Season&apos;s Impact</h2>
             <p className="text-on-surface-variant max-w-3xl">
               A snapshot of high-signal events that strengthened our local WEB3 ecosystem with practical learning,

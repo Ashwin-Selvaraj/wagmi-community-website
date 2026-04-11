@@ -119,20 +119,32 @@ export default function Navbar() {
         />
         <a
           href="#community"
-          className="shrink-0 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold px-6 py-2 rounded-full scale-95 active:scale-90 transition-transform text-sm"
+          className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-container px-5 py-2.5 text-sm font-semibold text-on-primary transition-[transform,opacity] hover:opacity-95 active:scale-[0.98]"
         >
-          Join Sanctum
+          Join Community
         </a>
       </motion.nav>
 
       {/* Mobile Top Bar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-surface/80 backdrop-blur-lg border-b border-white/5 flex items-center justify-between px-6 z-50">
-        <div className="text-lg font-bold tracking-tighter text-on-surface font-headline flex items-center gap-2">
-          <Shield className="text-primary" size={20} />
-          {COMMUNITY_NAME}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between gap-3 border-b border-white/5 bg-surface/80 px-4 backdrop-blur-lg sm:px-6">
+        <div className="min-w-0 text-lg font-bold tracking-tighter text-on-surface font-headline flex items-center gap-2">
+          <Shield className="shrink-0 text-primary" size={20} />
+          <span className="truncate">{COMMUNITY_NAME}</span>
         </div>
-        <div className="w-8 h-8 rounded-full bg-surface-container-highest border border-white/10 overflow-hidden">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeK-PSV66FMUqdJelXiEwS4KQJMbNzdnwGZpfLNsgfvXuObdiuVehsH1GwOv8sql-0zhyS8ZeDkw0z7HQdx3wrNslQJdrWEdmykX6ld3kaojBGV54lQKhqBf77NeDbRkizgqzdoyaKph6-HvBQkSqcgLzdE7EPMX_n3Jyoh4Z9L94sA_OQ6mq_8Tfs5MLw-X0y4bx2Hg68yk1W5VdCvdtigGw6q0Ea0jD4nqlgELFJMIEOn63p54O4fEY7dUYluNEuNpxhCxxObEvL" alt="User" className="w-full h-full object-cover" />
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <a
+            href="#community"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-container px-3.5 py-2 text-[11px] font-semibold leading-none text-on-primary transition-[transform,opacity] hover:opacity-95 active:scale-[0.98] sm:px-4 sm:text-xs"
+          >
+            Join Community
+          </a>
+          <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10 bg-surface-container-highest">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeK-PSV66FMUqdJelXiEwS4KQJMbNzdnwGZpfLNsgfvXuObdiuVehsH1GwOv8sql-0zhyS8ZeDkw0z7HQdx3wrNslQJdrWEdmykX6ld3kaojBGV54lQKhqBf77NeDbRkizgqzdoyaKph6-HvBQkSqcgLzdE7EPMX_n3Jyoh4Z9L94sA_OQ6mq_8Tfs5MLw-X0y4bx2Hg68yk1W5VdCvdtigGw6q0Ea0jD4nqlgELFJMIEOn63p54O4fEY7dUYluNEuNpxhCxxObEvL"
+              alt="User"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
 

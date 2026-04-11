@@ -16,7 +16,7 @@ const phases = [
   {
     id: "02",
     title: "Knowledge & Awareness",
-    description: "Organized multiple Ethereum-focused events, providing fundamental knowledge about wallets and security.",
+    description: "Organized multiple Ethereum-focused events and other WEB3 events, providing fundamental knowledge about wallets and security.",
     status: "Completed",
     icon: Rocket,
     color: "text-secondary",
@@ -65,14 +65,14 @@ export default function Roadmap() {
   const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-surface overflow-hidden relative" id="roadmap">
+    <section ref={sectionRef} className="section-y section-x bg-surface overflow-hidden relative" id="roadmap">
       <div className="max-w-3xl mx-auto relative">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
-          className="flex items-center gap-4 mb-12"
+          className="section-heading-gap flex items-center gap-4"
         >
           <div className="h-12 w-1.5 bg-secondary rounded-full"></div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Evolution Path</h2>

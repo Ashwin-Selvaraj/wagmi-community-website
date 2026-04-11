@@ -4,14 +4,25 @@ type PageSectionProps = {
   children: ReactNode;
   className?: string;
   forcedPages?: 1 | 2;
+  /** When false, height follows content (no min 100dvh / 200dvh shell). */
+  fillViewport?: boolean;
 };
 
-export default function PageSection({ children, className = "", forcedPages }: PageSectionProps) {
+export default function PageSection({
+  children,
+  className = "",
+  forcedPages,
+  fillViewport = true,
+}: PageSectionProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [pageSpan, setPageSpan] = useState<1 | 2>(forcedPages ?? 1);
 
   useLayoutEffect(() => {
+    if (!fillViewport) {
+      setPageSpan(1);
+      return;
+    }
     if (forcedPages) {
       setPageSpan(forcedPages);
       return;
@@ -35,16 +46,24 @@ export default function PageSection({ children, className = "", forcedPages }: P
     return () => {
       window.removeEventListener("resize", measure);
     };
-  }, [forcedPages]);
+  }, [forcedPages, fillViewport]);
+
+  const heightClass = fillViewport
+    ? pageSpan === 1
+      ? "min-h-[100dvh]"
+      : "min-h-[200dvh]"
+    : "min-h-0";
+
+  const innerClass = fillViewport
+    ? "h-full overflow-hidden rounded-[1.5rem] md:rounded-[2.25rem]"
+    : "h-auto min-h-0 rounded-[1.5rem] md:rounded-[2.25rem]";
 
   return (
     <div
       ref={hostRef}
-      className={`relative overflow-hidden rounded-[2rem] border border-white/5 p-2 md:rounded-[2.75rem] md:p-3 ${
-        pageSpan === 1 ? "min-h-[100dvh]" : "min-h-[200dvh]"
-      } ${className}`}
+      className={`relative overflow-hidden rounded-[2rem] border border-white/5 p-2 md:rounded-[2.75rem] md:p-3 ${heightClass} ${className}`}
     >
-      <div ref={contentRef} className="h-full rounded-[1.5rem] md:rounded-[2.25rem] overflow-hidden">
+      <div ref={contentRef} className={innerClass}>
         {children}
       </div>
     </div>

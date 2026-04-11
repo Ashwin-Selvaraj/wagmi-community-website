@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import { type CommunityEvent } from "../config/events";
@@ -20,7 +21,7 @@ const statusStyles: Record<CommunityEvent["status"], string> = {
   upcoming: "bg-emerald-500/15 text-emerald-300 border border-emerald-400/30",
 };
 
-export default function EventCard({ event, onViewDetails, index }: EventCardProps) {
+const EventCard: FC<EventCardProps> = ({ event, onViewDetails, index }) => {
   return (
     <motion.button
       type="button"
@@ -67,4 +68,6 @@ export default function EventCard({ event, onViewDetails, index }: EventCardProp
       </span>
     </motion.button>
   );
-}
+};
+
+export default EventCard;

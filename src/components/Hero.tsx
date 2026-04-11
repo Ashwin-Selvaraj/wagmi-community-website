@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <header
       id="home"
-      className="relative min-h-[100dvh] flex flex-col justify-between text-center px-6 pt-24 md:pt-28 pb-8 md:pb-10 overflow-hidden mesh-gradient"
+      className="relative min-h-[100dvh] flex flex-col justify-between text-center section-x pt-24 md:pt-28 pb-12 md:pb-14 overflow-hidden mesh-gradient"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full"></div>
@@ -71,9 +71,9 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1 }}
-        className="mt-8 md:mt-10 relative z-10 w-full max-w-6xl mx-auto"
+        className="mt-10 md:mt-12 relative z-10 w-full max-w-6xl mx-auto"
       >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { label: "Onboarded", value: "500+", color: "text-primary" },
             { label: "Events", value: "12+", color: "text-secondary" },

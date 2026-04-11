@@ -43,7 +43,7 @@ const activities = [
 
 export default function Activities() {
   return (
-    <section className="relative isolate overflow-hidden rounded-[1.5rem] md:rounded-[2.25rem] pt-24 pb-24 px-6 bg-surface" id="ecosystem">
+    <section className="relative isolate overflow-hidden rounded-[1.5rem] md:rounded-[2.25rem] section-x section-y bg-surface" id="ecosystem">
       <div className="absolute inset-0 -z-20 rounded-[1.5rem] md:rounded-[2.25rem] overflow-hidden">
         <LetterGlitch
           className="h-full w-full"
@@ -57,7 +57,7 @@ export default function Activities() {
       <div className="absolute inset-0 -z-10 rounded-[1.5rem] md:rounded-[2.25rem] bg-gradient-to-b from-surface/62 via-surface/54 to-surface/64" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="mb-12 md:mb-16 flex items-center gap-4">
+        <div className="section-heading-gap flex items-center gap-4">
           <div className="h-12 w-1.5 bg-primary rounded-full"></div>
           <motion.h2 
             initial={{ opacity: 0, x: -20 }}
@@ -79,11 +79,11 @@ export default function Activities() {
               transition={{ delay: i * 0.1 }}
               className={`group p-6 md:p-8 rounded-2xl md:rounded-3xl bg-surface-container-low/70 hover:bg-surface-container-high/80 backdrop-blur-sm transition-all duration-500 border border-white/5 ${activity.hoverBorder} flex flex-col items-start`}
             >
-              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl ${activity.bgColor} flex items-center justify-center ${activity.color} mb-5 md:6 group-hover:scale-110 transition-transform`}>
+              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl ${activity.bgColor} flex items-center justify-center ${activity.color} mb-5 md:mb-6 group-hover:scale-110 transition-transform`}>
                 <activity.icon size={28} />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 md:3">{activity.title}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed mb-4 md:6">
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">{activity.title}</h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed mb-4 md:mb-6">
                 {activity.description}
               </p>
               <a className={`mt-auto ${activity.color} font-bold flex items-center gap-2 group-hover:gap-4 transition-all text-sm md:text-base`} href="#">
