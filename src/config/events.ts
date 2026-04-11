@@ -1,6 +1,8 @@
+import { SOLIDITY_BOOTCAMP_FORM_URL } from "./site";
+
 export type EventType = "event" | "course" | "workshop";
 export type EventLocation = "Online" | "Offline";
-export type EventLinkType = "luma" | "form";
+export type EventLinkType = "luma" | "form" | "soon";
 export type EventStatus = "live" | "upcoming";
 
 export type CommunityEvent = {
@@ -34,20 +36,21 @@ export const events: CommunityEvent[] = [
       "Live Q&A with mentors",
     ],
     type: "event",
-    status: "live",
+    status: "upcoming",
     location: "Offline",
     venue: "Coimbatore Community Hub",
     date: "2026-05-12",
     time: "6:30 PM IST",
-    linkType: "luma",
-    link: "https://luma.com/",
+    linkType: "soon",
+    link: "",
   },
   {
     id: 2,
     title: "Hands-on Solidity Bootcamp",
-    description: "A structured workshop to help developers build and deploy their first smart contract.",
+    description:
+      "Live online cohort (Mar 31–May 31): a structured path to build and deploy your first smart contract.",
     fullDescription:
-      "An intermediate workshop focused on writing, testing, and deploying smart contracts. Ideal for developers who understand basics and want hands-on building experience.",
+      "This cohort is live and running from March 31 through May 31. Join builders moving from basics to shipping Solidity: guided sessions, hands-on exercises, and mentor support through the full arc of writing, testing, and deploying contracts.",
     agenda: [
       "Solidity fundamentals",
       "Contract structure and deployment",
@@ -55,11 +58,11 @@ export const events: CommunityEvent[] = [
       "Next steps for builders",
     ],
     type: "workshop",
-    status: "upcoming",
+    status: "live",
     location: "Online",
-    date: "2026-05-25",
-    time: "7:00 PM IST",
+    date: "Mar 31 – May 31, 2026",
+    time: "Cohort in session",
     linkType: "form",
-    link: "https://forms.google.com/",
+    link: SOLIDITY_BOOTCAMP_FORM_URL,
   },
 ];

@@ -7,6 +7,13 @@ export const COMMUNITY_INSTAGRAM_URL = import.meta.env.VITE_COMMUNITY_INSTAGRAM_
 export const COMMUNITY_TWITTER_URL = import.meta.env.VITE_COMMUNITY_TWITTER_URL?.trim() || "#";
 export const COMMUNITY_WHATSAPP_URL = import.meta.env.VITE_COMMUNITY_WHATSAPP_URL?.trim() || "#";
 
+/** Google Form for Solidity bootcamp / cohort registration (Events + featured course). */
+const defaultSolidityBootcampFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSc1rNa_7aM72z5cVtK4nAh6w5RJR_QXeIqliqGHioGEd6z73g/viewform?usp=publish-editor";
+
+export const SOLIDITY_BOOTCAMP_FORM_URL =
+  import.meta.env.VITE_SOLIDITY_BOOTCAMP_FORM_URL?.trim() || defaultSolidityBootcampFormUrl;
+
 /** Hero stat grid: values and optional label overrides (VITE_*). */
 export type HeroStat = {
   label: string;

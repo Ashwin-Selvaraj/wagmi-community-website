@@ -67,8 +67,14 @@ const EventCard: FC<EventCardProps> = ({ event, onViewDetails, index }) => {
         ) : null}
       </div>
 
-      <span className="mt-auto inline-flex min-h-11 items-center self-start rounded-xl bg-on-surface px-4 py-2.5 text-sm font-bold text-surface transition-colors group-hover:bg-primary group-hover:text-on-primary sm:px-5">
-        View Details
+      <span
+        className={
+          event.linkType === "soon"
+            ? "mt-auto inline-flex min-h-11 items-center self-start rounded-xl border border-white/15 bg-surface-container-high px-4 py-2.5 text-sm font-bold text-on-surface-variant sm:px-5"
+            : "mt-auto inline-flex min-h-11 items-center self-start rounded-xl bg-on-surface px-4 py-2.5 text-sm font-bold text-surface transition-colors group-hover:bg-primary group-hover:text-on-primary sm:px-5"
+        }
+      >
+        {event.linkType === "soon" ? "Registrations open soon" : "View Details"}
       </span>
     </motion.button>
   );

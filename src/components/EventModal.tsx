@@ -95,14 +95,20 @@ export default function EventModal({ event, onClose }: EventModalProps) {
               </div>
             ) : null}
 
-            <a
-              href={event.link}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex rounded-xl bg-gradient-to-r from-primary to-primary-container px-5 py-3 text-sm font-bold text-on-primary transition hover:opacity-95"
-            >
-              {event.linkType === "luma" ? "Join via Luma" : "Register Now"}
-            </a>
+            {event.linkType === "soon" ? (
+              <p className="inline-flex rounded-xl border border-white/15 bg-surface-container-high px-5 py-3 text-sm font-bold text-on-surface-variant">
+                Registrations open soon
+              </p>
+            ) : (
+              <a
+                href={event.link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex rounded-xl bg-gradient-to-r from-primary to-primary-container px-5 py-3 text-sm font-bold text-on-primary transition hover:opacity-95"
+              >
+                {event.linkType === "luma" ? "Join via Luma" : "Register Now"}
+              </a>
+            )}
           </motion.div>
         </motion.div>
       ) : null}

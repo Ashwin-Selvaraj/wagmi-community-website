@@ -2,7 +2,7 @@ import { Fragment, useMemo, useState } from "react";
 import EventCard from "./EventCard";
 import EventModal from "./EventModal";
 import { events, type CommunityEvent } from "../config/events";
-import { COMMUNITY_NAME } from "../config/site";
+import { COMMUNITY_NAME, SOLIDITY_BOOTCAMP_FORM_URL } from "../config/site";
 
 const featuredCourse: CommunityEvent = {
   id: 999,
@@ -22,7 +22,7 @@ const featuredCourse: CommunityEvent = {
   date: "",
   time: "",
   linkType: "form",
-  link: "https://forms.google.com/",
+  link: SOLIDITY_BOOTCAMP_FORM_URL,
 };
 
 export default function EventsSection() {
