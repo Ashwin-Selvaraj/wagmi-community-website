@@ -13,14 +13,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-surface selection:bg-primary/30">
       <Navbar />
-      <main className="px-3 pb-6 pt-4 md:px-5 md:pb-10 md:pt-5 space-y-6 md:space-y-10">
+      <main className="space-y-4 px-3 pb-[max(5.25rem,calc(4.65rem+env(safe-area-inset-bottom,0px)))] pt-3 md:space-y-10 md:px-5 md:pb-10 md:pt-5">
         <PageSection forcedPages={1}>
           <Hero />
         </PageSection>
         <PageSection>
           <EventsAndImpact />
         </PageSection>
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/5 p-2 md:rounded-[2.75rem] md:p-3">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/5 p-1.5 md:rounded-[2.75rem] md:p-3">
           <Activities />
         </div>
         <PageSection forcedPages={1}>
@@ -37,10 +37,10 @@ export default function App() {
         </PageSection>
       </main>
       
-      <footer className="mx-3 mb-3 md:mx-5 md:mb-5 py-16 md:py-20 px-6 md:px-8 bg-surface border border-white/5 rounded-[2rem] md:rounded-[2.75rem] text-center">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-xl font-bold tracking-tighter text-on-surface font-headline mb-4">{COMMUNITY_NAME}</div>
-          <p className="text-on-surface-variant text-sm mb-10 md:mb-12">Building the WEB3 ecosystem in Coimbatore & Tiruppur.</p>
+      <footer className="mx-3 mb-3 rounded-[2rem] border border-white/5 bg-surface px-5 py-10 text-center md:mx-5 md:mb-5 md:rounded-[2.75rem] md:px-8 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-3 font-headline text-lg font-bold tracking-tighter text-on-surface md:mb-4 md:text-xl">{COMMUNITY_NAME}</div>
+          <p className="mb-6 text-sm text-on-surface-variant md:mb-12">Building the WEB3 ecosystem in Coimbatore & Tiruppur.</p>
           <p className="text-on-surface-variant/50 text-xs">© 2024 {COMMUNITY_NAME} Community. All rights reserved.</p>
         </div>
       </footer>

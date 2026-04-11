@@ -27,16 +27,16 @@ export default function EventModal({ event, onClose }: EventModalProps) {
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
-            transition={{ duration: 0.22 }}
+            transition={{ duration: 0.24, ease: [0.4, 0, 0.2, 1] }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-4 top-4 rounded-full bg-surface-container-high p-2 text-on-surface-variant transition hover:text-on-surface"
+              className="absolute right-3 top-3 inline-flex size-11 items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant transition hover:text-on-surface sm:right-4 sm:top-4"
               aria-label="Close event details"
             >
-              <X size={16} />
+              <X size={18} />
             </button>
 
             <div className="mb-5 flex flex-wrap items-center gap-2">

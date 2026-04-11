@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const vertexShader = `
@@ -398,19 +398,35 @@ class CanvAscii {
   }
 }
 
+/** Viewport width (px) at which the WebGL ASCII effect runs; below = plain text only (mobile + tablet). */
+const DEFAULT_DESKTOP_MIN_WIDTH = 1024;
+
 export default function ASCIIText({
   text = 'David!',
   asciiFontSize = 8,
   textFontSize = 200,
   textColor = '#fdf9f3',
   planeBaseHeight = 8,
-  enableWaves = true
+  enableWaves = true,
+  desktopMinWidth = DEFAULT_DESKTOP_MIN_WIDTH,
 }) {
   const containerRef = useRef(null);
   const asciiRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth >= desktopMinWidth : false
+  );
+
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia(`(min-width: ${desktopMinWidth}px)`);
+    const sync = () => setIsDesktop(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, [desktopMinWidth]);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!isDesktop || !containerRef.current) return;
 
     let cancelled = false;
     let observer = null;
@@ -479,7 +495,29 @@ export default function ASCIIText({
         asciiRef.current = null;
       }
     };
-  }, [text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves]);
+  }, [isDesktop, text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves]);
+
+  if (!isDesktop) {
+    return (
+      <div
+        className="ascii-text-static"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '100%',
+          padding: '0 0.25rem',
+        }}
+      >
+        <span className="hero-community-name-static" style={{ color: textColor }}>
+          {text}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div

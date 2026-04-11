@@ -7,6 +7,38 @@ export const COMMUNITY_INSTAGRAM_URL = import.meta.env.VITE_COMMUNITY_INSTAGRAM_
 export const COMMUNITY_TWITTER_URL = import.meta.env.VITE_COMMUNITY_TWITTER_URL?.trim() || "#";
 export const COMMUNITY_WHATSAPP_URL = import.meta.env.VITE_COMMUNITY_WHATSAPP_URL?.trim() || "#";
 
+/** Hero stat grid: values and optional label overrides (VITE_*). */
+export type HeroStat = {
+  label: string;
+  value: string;
+  color: string;
+};
+
+const HERO_STAT_COLORS = ["text-primary", "text-secondary", "text-tertiary", "text-on-surface"] as const;
+
+export const HERO_STATS: HeroStat[] = [
+  {
+    label: import.meta.env.VITE_HERO_STAT_ONBOARDED_LABEL?.trim() || "Onboarded",
+    value: import.meta.env.VITE_HERO_STAT_ONBOARDED?.trim() || "500+",
+    color: HERO_STAT_COLORS[0],
+  },
+  {
+    label: import.meta.env.VITE_HERO_STAT_EVENTS_LABEL?.trim() || "Events",
+    value: import.meta.env.VITE_HERO_STAT_EVENTS?.trim() || "12+",
+    color: HERO_STAT_COLORS[1],
+  },
+  {
+    label: import.meta.env.VITE_HERO_STAT_MEMBERS_LABEL?.trim() || "Members",
+    value: import.meta.env.VITE_HERO_STAT_MEMBERS?.trim() || "1.2k+",
+    color: HERO_STAT_COLORS[2],
+  },
+  {
+    label: import.meta.env.VITE_HERO_STAT_EVENTS_PER_YEAR_LABEL?.trim() || "Events / Year",
+    value: import.meta.env.VITE_HERO_STAT_EVENTS_PER_YEAR?.trim() || "6+",
+    color: HERO_STAT_COLORS[3],
+  },
+];
+
 export type PastEvent = {
   title: string;
   url: string;

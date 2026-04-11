@@ -34,22 +34,22 @@ export default function EventsSection() {
     <section className="bg-surface-container-low section-x section-y" id="events">
       <div className="mx-auto w-full max-w-7xl">
         <div className="section-heading-gap flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="mb-3 text-4xl font-bold tracking-tight md:text-5xl">Events</h2>
-            <p className="max-w-2xl text-on-surface-variant">
+          <div className="min-w-0">
+            <h2 className="mb-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Events</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-on-surface-variant sm:text-base">
               {`Discover beginner-friendly sessions, workshops, and courses designed to onboard and grow Web3 builders in the ${COMMUNITY_NAME} community.`}
             </p>
           </div>
           <a
             href="#impact"
-            className="inline-flex items-center rounded-2xl border border-outline-variant bg-surface-container-highest px-6 py-3 text-sm font-bold transition-all hover:border-primary/40"
+            className="inline-flex min-h-11 w-full shrink-0 items-center justify-center rounded-2xl border border-outline-variant bg-surface-container-highest px-5 py-3 text-sm font-bold transition-all hover:border-primary/40 md:w-auto md:px-6"
           >
             View Archive
           </a>
         </div>
 
         {!hasEvents ? (
-          <div className="mb-8 rounded-3xl border border-dashed border-white/15 bg-surface-container px-6 py-6">
+          <div className="mb-6 rounded-3xl border border-dashed border-white/15 bg-surface-container px-5 py-5 md:mb-8 md:px-6 md:py-6">
             <p className="text-lg font-semibold text-on-surface">No upcoming events yet. Stay tuned!</p>
             <a
               href="#community"
@@ -60,7 +60,7 @@ export default function EventsSection() {
           </div>
         ) : null}
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
           {visibleEvents.map((event, index) => (
             <Fragment key={event.id}>
               <EventCard event={event} index={index} onViewDetails={setSelectedEvent} />

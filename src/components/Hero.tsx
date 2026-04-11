@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
-import { COMMUNITY_NAME } from "../config/site";
+import { COMMUNITY_NAME, HERO_STATS } from "../config/site";
 import ASCIIText from "../../components/ASCIIText.jsx";
 
 export default function Hero() {
   return (
     <header
       id="home"
-      className="relative min-h-[100dvh] flex flex-col justify-between text-center section-x pt-24 md:pt-28 pb-12 md:pb-14 overflow-hidden mesh-gradient"
+      className="relative flex min-h-[100dvh] flex-col justify-between overflow-x-hidden text-center section-x pb-6 pt-[calc(3.5rem+env(safe-area-inset-top,0px)+0.625rem)] mesh-gradient md:pb-14 md:pt-28"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full"></div>
@@ -18,9 +18,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-4xl md:text-8xl font-bold tracking-tighter mb-6 leading-tight md:leading-none"
+          className="mb-5 text-[clamp(1.85rem,6.5vw,2.5rem)] font-bold leading-tight tracking-tighter sm:mb-6 sm:text-4xl md:mb-6 md:text-8xl md:leading-none"
         >
-          <span className="relative mx-auto mb-2 block h-[136px] w-full max-w-[520px] md:h-[220px] md:max-w-[920px]">
+          <span className="relative mx-auto mb-2 block min-h-[4.5rem] w-full max-w-[min(100%,520px)] max-sm:min-h-[6rem] sm:min-h-[5rem] md:max-w-[920px] lg:h-[220px] lg:min-h-[220px]">
             <div className="absolute inset-0 opacity-80">
               <ASCIIText
                 text={COMMUNITY_NAME}
@@ -41,7 +41,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-10"
+          className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-on-surface-variant sm:mb-10 sm:text-lg md:text-xl"
         >
           A grassroots initiative making blockchain accessible. From first wallets to first dApps, we're building the local Web3 ecosystem together.
         </motion.p>
@@ -50,17 +50,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
         >
           <a
             href="#community"
-            className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-3xl font-bold text-lg hover:shadow-[0_0_30px_rgba(149,169,255,0.4)] transition-all"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-3xl bg-gradient-to-r from-primary to-primary-container px-6 py-3.5 text-base font-bold text-on-primary transition-all hover:shadow-[0_0_30px_rgba(149,169,255,0.4)] sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
           >
             Join Community
           </a>
           <a
             href="#events"
-            className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-surface-container-highest text-on-surface rounded-3xl font-bold text-lg hover:bg-surface-container-high transition-all"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-3xl bg-surface-container-highest px-6 py-3.5 text-base font-bold text-on-surface transition-colors hover:bg-surface-container-high sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
           >
             Explore Events
           </a>
@@ -71,18 +71,18 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1 }}
-        className="mt-10 md:mt-12 relative z-10 w-full max-w-6xl mx-auto"
+        className="relative z-10 mx-auto mt-6 w-full max-w-6xl sm:mt-8 md:mt-12"
       >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          {[
-            { label: "Onboarded", value: "500+", color: "text-primary" },
-            { label: "Events", value: "12+", color: "text-secondary" },
-            { label: "Members", value: "1.2k+", color: "text-tertiary" },
-            { label: "Events / Year", value: "6+", color: "text-on-surface" }
-          ].map((stat, i) => (
-            <div key={i} className="bg-surface-container-low/40 backdrop-blur-md p-5 md:p-6 rounded-2xl md:rounded-3xl border border-white/5 text-left">
-              <p className={`${stat.color} font-headline text-2xl md:text-3xl font-bold mb-1`}>{stat.value}</p>
-              <p className="text-on-surface-variant text-[10px] md:text-xs uppercase tracking-widest">{stat.label}</p>
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:grid-cols-4">
+          {HERO_STATS.map((stat, i) => (
+            <div
+              key={`${stat.label}-${i}`}
+              className="rounded-2xl border border-white/5 bg-surface-container-low/40 p-4 text-left backdrop-blur-md sm:p-5 md:rounded-3xl md:p-6"
+            >
+              <p className={`${stat.color} mb-0.5 font-headline text-xl font-bold sm:mb-1 sm:text-2xl md:text-3xl`}>{stat.value}</p>
+              <p className="text-on-surface-variant text-[11px] uppercase leading-snug tracking-wider sm:text-xs md:tracking-widest">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>

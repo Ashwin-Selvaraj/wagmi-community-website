@@ -31,7 +31,7 @@ const EventCard: FC<EventCardProps> = ({ event, onViewDetails, index }) => {
       transition={{ duration: 0.45, delay: index * 0.08 }}
       whileHover={{ scale: 1.015, y: -4 }}
       onClick={() => onViewDetails(event)}
-      className="group flex h-full min-h-[340px] w-full flex-col rounded-[2rem] border border-white/10 bg-gradient-to-b from-surface-container-high to-surface-container p-7 md:p-8 text-left shadow-[0_16px_40px_rgba(0,0,0,0.24)] transition-all hover:border-primary/40 hover:shadow-[0_26px_56px_rgba(0,0,0,0.36)]"
+      className="group flex h-full min-h-[280px] w-full min-w-0 flex-col rounded-[1.5rem] border border-white/10 bg-gradient-to-b from-surface-container-high to-surface-container p-5 text-left shadow-[0_16px_40px_rgba(0,0,0,0.24)] transition-all hover:border-primary/40 hover:shadow-[0_26px_56px_rgba(0,0,0,0.36)] sm:min-h-[300px] sm:rounded-[1.75rem] sm:p-6 md:min-h-[340px] md:rounded-[2rem] md:p-8"
     >
       <div className="mb-5 flex items-center justify-between gap-2">
         <span
@@ -46,10 +46,14 @@ const EventCard: FC<EventCardProps> = ({ event, onViewDetails, index }) => {
         </span>
       </div>
 
-      <h3 className="mb-3 line-clamp-2 min-h-[64px] text-2xl font-bold tracking-tight text-on-surface">{event.title}</h3>
-      <p className="mb-7 line-clamp-2 min-h-[56px] text-base leading-relaxed text-on-surface-variant">{event.description}</p>
+      <h3 className="mb-2 line-clamp-2 min-h-[3.25rem] text-lg font-bold tracking-tight text-on-surface sm:mb-3 sm:min-h-[3.5rem] sm:text-xl md:min-h-[4rem] md:text-2xl">
+        {event.title}
+      </h3>
+      <p className="mb-5 line-clamp-2 min-h-[2.75rem] text-sm leading-relaxed text-on-surface-variant sm:mb-6 sm:min-h-[3rem] sm:text-base md:mb-7 md:min-h-[3.5rem]">
+        {event.description}
+      </p>
 
-      <div className="mb-8 min-h-[54px] flex flex-col gap-2 text-sm text-on-surface-variant">
+      <div className="mb-6 flex min-h-[3rem] flex-col gap-2 text-xs text-on-surface-variant sm:mb-7 sm:text-sm md:mb-8 md:min-h-[3.375rem]">
         <span className="inline-flex items-center gap-2">
           <MapPin size={13} />
           {event.location}
@@ -63,7 +67,7 @@ const EventCard: FC<EventCardProps> = ({ event, onViewDetails, index }) => {
         ) : null}
       </div>
 
-      <span className="mt-auto inline-flex items-center self-start rounded-xl bg-on-surface px-5 py-2.5 text-sm font-bold text-surface transition-colors group-hover:bg-primary group-hover:text-on-primary">
+      <span className="mt-auto inline-flex min-h-11 items-center self-start rounded-xl bg-on-surface px-4 py-2.5 text-sm font-bold text-surface transition-colors group-hover:bg-primary group-hover:text-on-primary sm:px-5">
         View Details
       </span>
     </motion.button>

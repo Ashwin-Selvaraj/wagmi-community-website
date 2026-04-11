@@ -160,14 +160,16 @@ export default function PillNav({
     const hamburger = hamburgerRef.current;
     const menu = mobileMenuRef.current;
 
+    const menuEase = "power2.inOut";
+
     if (hamburger) {
       const lines = hamburger.querySelectorAll(".hamburger-line");
       if (nextState) {
-        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
+        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.32, ease: menuEase });
+        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.32, ease: menuEase });
       } else {
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.28, ease: menuEase });
+        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.28, ease: menuEase });
       }
     }
 
@@ -176,16 +178,16 @@ export default function PillNav({
         gsap.set(menu, { visibility: "visible" });
         gsap.fromTo(
           menu,
-          { opacity: 0, y: 10, scaleY: 1 },
-          { opacity: 1, y: 0, scaleY: 1, duration: 0.3, ease, transformOrigin: "top center" }
+          { opacity: 0, y: 8, scaleY: 0.98 },
+          { opacity: 1, y: 0, scaleY: 1, duration: 0.32, ease: menuEase, transformOrigin: "top center" }
         );
       } else {
         gsap.to(menu, {
           opacity: 0,
-          y: 10,
-          scaleY: 1,
-          duration: 0.2,
-          ease,
+          y: 8,
+          scaleY: 0.98,
+          duration: 0.26,
+          ease: menuEase,
           transformOrigin: "top center",
           onComplete: () => gsap.set(menu, { visibility: "hidden" }),
         });

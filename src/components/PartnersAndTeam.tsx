@@ -12,7 +12,7 @@ export default function PartnersAndTeam() {
           </div>
           
           {TEAM_MEMBERS.length ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:grid-cols-4">
               {TEAM_MEMBERS.map((member, i) => (
                 <motion.div 
                   key={`${member.name}-${i}`}

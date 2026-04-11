@@ -83,7 +83,7 @@ export default function Impact() {
             </p>
           </div>
 
-          <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:mb-8 sm:gap-4">
             <div className="rounded-2xl bg-surface-container-low border border-white/10 px-5 py-4">
               <div className="flex items-center gap-3 mb-1">
                 <CheckCircle2 size={18} className="text-primary" />
@@ -104,11 +104,11 @@ export default function Impact() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
             {events.map((event, idx) => (
               <article
                 key={event.url}
-                className={`group relative overflow-hidden border border-white/10 bg-surface-container-low transition-all duration-300 hover:border-primary/50 ${
+                className={`group relative min-w-0 overflow-hidden border border-white/10 bg-surface-container-low transition-all duration-300 hover:border-primary/50 ${
                   idx % 2 === 0 ? "rounded-[2rem]" : "rounded-[1.4rem]"
                 }`}
               >

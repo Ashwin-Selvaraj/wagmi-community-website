@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 const vertexShader = `
@@ -411,6 +411,9 @@ class CanvAscii {
   }
 }
 
+/** WebGL ASCII runs at this min width (px); below = plain text (mobile + tablet). Matches Tailwind `lg`. */
+const DEFAULT_DESKTOP_MIN_WIDTH = 1024;
+
 type ASCIITextProps = {
   text: string;
   asciiFontSize?: number;
@@ -419,6 +422,8 @@ type ASCIITextProps = {
   planeBaseHeight?: number;
   enableWaves?: boolean;
   className?: string;
+  /** Minimum viewport width (px) for the ASCII animation; below uses plain text only. */
+  desktopMinWidth?: number;
 };
 
 export default function ASCIIText({
@@ -429,13 +434,25 @@ export default function ASCIIText({
   planeBaseHeight = 8,
   enableWaves = true,
   className = "",
+  desktopMinWidth = DEFAULT_DESKTOP_MIN_WIDTH,
 }: ASCIITextProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const asciiRef = useRef<CanvAscii | null>(null);
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== "undefined" && window.innerWidth >= desktopMinWidth
+  );
+
+  useLayoutEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${desktopMinWidth}px)`);
+    const sync = () => setIsDesktop(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, [desktopMinWidth]);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!isDesktop || !container) return;
 
     let cancelled = false;
     let observer: IntersectionObserver | null = null;
@@ -502,7 +519,29 @@ export default function ASCIIText({
       asciiRef.current?.dispose();
       asciiRef.current = null;
     };
-  }, [text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves]);
+  }, [isDesktop, text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves]);
+
+  if (!isDesktop) {
+    return (
+      <div
+        className={`ascii-text-static ${className}`}
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          height: "100%",
+          padding: "0 0.25rem",
+        }}
+      >
+        <span className="hero-community-name-static" style={{ color: textColor }}>
+          {text}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className={`ascii-text-container ${className}`} style={{ position: "absolute", inset: 0 }}>

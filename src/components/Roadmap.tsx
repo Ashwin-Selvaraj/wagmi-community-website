@@ -86,7 +86,7 @@ export default function Roadmap() {
             style={{ scaleY: reduceMotion ? 1 : lineScale }}
           />
           
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {phases.map((phase, i) => (
               <motion.div 
                 key={i}

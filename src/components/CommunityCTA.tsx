@@ -10,7 +10,7 @@ import {
 export default function CommunityCTA() {
   return (
     <section
-      className="section-x relative w-full min-w-0 overflow-hidden rounded-[1.5rem] bg-surface py-10 md:rounded-[2.25rem] md:py-12 lg:py-14"
+      className="section-x relative w-full min-w-0 overflow-hidden rounded-[1.5rem] bg-surface pb-6 pt-8 md:rounded-[2.25rem] md:py-12 lg:py-14"
       id="community"
     >
       <div
@@ -29,7 +29,7 @@ export default function CommunityCTA() {
             <h2 className="mb-4 text-4xl font-bold leading-tight tracking-tighter md:mb-5 md:text-5xl lg:text-6xl">
               Start your Web3 journey with <span className="text-primary">{COMMUNITY_NAME}</span>
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-on-surface-variant md:mb-10 md:text-lg lg:text-xl">
+            <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-on-surface-variant md:mb-10 md:text-lg lg:text-xl">
               Connect with our regional chapters and join the movement today. We're building the future of the decentralized web, together.
             </p>
 

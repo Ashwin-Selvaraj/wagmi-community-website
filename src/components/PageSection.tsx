@@ -61,7 +61,7 @@ export default function PageSection({
   return (
     <div
       ref={hostRef}
-      className={`relative overflow-hidden rounded-[2rem] border border-white/5 p-2 md:rounded-[2.75rem] md:p-3 ${heightClass} ${className}`}
+      className={`relative overflow-hidden rounded-[2rem] border border-white/5 p-1.5 md:rounded-[2.75rem] md:p-3 ${heightClass} ${className}`}
     >
       <div ref={contentRef} className={innerClass}>
         {children}

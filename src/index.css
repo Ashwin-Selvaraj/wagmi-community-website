@@ -32,18 +32,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Fixed top nav (mobile h-16 + desktop pill nav); keeps #section targets below the bar */
-    scroll-padding-top: 5.5rem;
+    /* Mobile fixed header: h-14 + safe-area; desktop pill nav uses md rule */
+    scroll-padding-top: calc(3.5rem + env(safe-area-inset-top, 0px) + 0.25rem);
+    /* Mobile bottom nav + home indicator */
+    scroll-padding-bottom: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
   }
 
   @media (min-width: 768px) {
     html {
       scroll-padding-top: 6.5rem;
+      scroll-padding-bottom: 0;
     }
   }
 
   body {
     @apply bg-surface text-on-surface font-body;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -61,16 +65,29 @@
                 radial-gradient(at 100% 100%, rgba(197, 126, 255, 0.1) 0%, transparent 50%);
   }
 
-  /* Uniform vertical rhythm for stacked page sections */
+  /* Section rhythm: tighter bottom padding on small screens (avoids excess gap above bottom nav) */
   .section-y {
-    @apply py-24 md:py-28;
+    @apply pt-16 pb-10 md:pt-24 md:pb-24 lg:pt-28 lg:pb-28;
   }
 
   .section-x {
-    @apply px-6 md:px-8;
+    @apply px-4 sm:px-6 md:px-8;
   }
 
   .section-heading-gap {
-    @apply mb-12 md:mb-16;
+    @apply mb-8 md:mb-12 lg:mb-16;
+  }
+
+  /* Hero community name (plain text below lg only): larger on small phones; tablet unchanged. */
+  .hero-community-name-static {
+    @apply font-headline text-center font-bold tracking-tighter;
+    line-height: 1.05;
+    font-size: clamp(1.65rem, 7vw, 2.75rem);
+  }
+
+  @media (max-width: 639px) {
+    .hero-community-name-static {
+      font-size: clamp(2.35rem, 11.5vw, 4.35rem);
+    }
   }
 }
