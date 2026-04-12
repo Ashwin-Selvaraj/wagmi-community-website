@@ -1,8 +1,21 @@
 import { motion } from "motion/react";
-import { GraduationCap, Users, Terminal, Rocket, ArrowRight } from "lucide-react";
+import { GraduationCap, Users, Terminal, Rocket, ArrowRight, type LucideIcon } from "lucide-react";
 import LetterGlitch from "../../components/LetterGlitch.jsx";
 
-const activities = [
+type ActivityItem = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  color: string;
+  bgColor: string;
+  hoverBorder: string;
+  linkText: string;
+  href?: string;
+  /** When true, show status text instead of a link (no navigation). */
+  comingSoon?: boolean;
+};
+
+const activities: ActivityItem[] = [
   {
     title: "Web3 Onboarding",
     description: "Simplified sessions for absolute beginners to start their crypto journey safely.",
@@ -10,7 +23,7 @@ const activities = [
     color: "text-primary",
     bgColor: "bg-primary/10",
     hoverBorder: "hover:border-primary/20",
-    linkText: "Learn more"
+    linkText: "Learn more",
   },
   {
     title: "Web3 Workshops",
@@ -19,7 +32,8 @@ const activities = [
     color: "text-secondary",
     bgColor: "bg-secondary/10",
     hoverBorder: "hover:border-secondary/20",
-    linkText: "View schedule"
+    linkText: "View schedule",
+    href: "#events",
   },
   {
     title: "Community Meetups",
@@ -28,7 +42,8 @@ const activities = [
     color: "text-tertiary",
     bgColor: "bg-tertiary/10",
     hoverBorder: "hover:border-tertiary/20",
-    linkText: "Hack with us"
+    linkText: "Hack with us",
+    href: "#events",
   },
   {
     title: "Builder Support",
@@ -37,8 +52,9 @@ const activities = [
     color: "text-on-surface",
     bgColor: "bg-white/10",
     hoverBorder: "hover:border-white/20",
-    linkText: "Apply now"
-  }
+    linkText: "Coming soon",
+    comingSoon: true,
+  },
 ];
 
 export default function Activities() {
@@ -86,9 +102,18 @@ export default function Activities() {
               <p className="text-on-surface-variant text-sm leading-relaxed mb-4 md:mb-6">
                 {activity.description}
               </p>
-              <a className={`mt-auto ${activity.color} font-bold flex items-center gap-2 group-hover:gap-4 transition-all text-sm md:text-base`} href="#">
-                {activity.linkText} <ArrowRight size={18} />
-              </a>
+              {activity.comingSoon ? (
+                <span className="mt-auto text-sm font-bold text-on-surface-variant md:text-base">
+                  {activity.linkText}
+                </span>
+              ) : (
+                <a
+                  className={`mt-auto ${activity.color} font-bold flex items-center gap-2 group-hover:gap-4 transition-all text-sm md:text-base`}
+                  href={activity.href ?? "#"}
+                >
+                  {activity.linkText} <ArrowRight size={18} />
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

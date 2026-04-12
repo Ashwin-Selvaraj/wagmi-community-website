@@ -17,7 +17,7 @@ export default function App() {
         <PageSection forcedPages={1}>
           <Hero />
         </PageSection>
-        <PageSection>
+        <PageSection fillViewport={false}>
           <EventsAndImpact />
         </PageSection>
         <div className="relative overflow-hidden rounded-[2rem] border border-white/5 p-1.5 md:rounded-[2.75rem] md:p-3">
