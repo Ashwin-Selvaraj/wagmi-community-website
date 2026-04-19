@@ -66,5 +66,3 @@ export const events: CommunityEvent[] = [
     link: SOLIDITY_BOOTCAMP_FORM_URL,
   },
 ];
-
-
